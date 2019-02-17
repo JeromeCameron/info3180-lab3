@@ -14,7 +14,7 @@
         </div>
 
         <div class="c_form">
-            {{ form.name(class="c_form") }}
+            {{ form.name(class="field") }}
         </div>
         
         <div class="c_form">
@@ -22,8 +22,8 @@
             <p>Please enter your e-mail address</p>
         </div>
 
-        <div class="c_form">
-            {{ form.email(class="c_form", placeholder="mail@gmail.com") }}
+        <div class="c_form" >
+            {{ form.email(class="field", placeholder="mail@gmail.com") }}
         </div>
 
         <div class="c_form">
@@ -32,7 +32,7 @@
         </div>
 
         <div class="c_form">
-            {{ form.subject(class="c_form") }}
+            {{ form.subject(class="field") }}
         </div>
 
         <div class="c_form">
@@ -41,9 +41,8 @@
         </div>
 
         <div class="c_form">
-            {{ form.message(class="c_form") }}
+            {{ form.message(class="field", id = "message") }}
         </div>
-
 
     <button type="submit" id="button">Send</button>
 
