@@ -11,7 +11,6 @@ from .forms import ContactForm
 from app import mail
 from flask_mail import Message
 
-
 ###
 # Routing for your application.
 ###
@@ -33,13 +32,17 @@ def contact():
 
     if request.method == 'POST':
 
+        name = request.form['name']
+        sub = request.form['subject']
+        email = request.form['email']
+        message = request.form['message']
+
         if myform.validate_on_submit():
-            msg = Message(request.form('subject'), sender=(request.form('email'),
-            request.form('email')),recipients=["to@example.com"])
-            msg.body = request.form('message')
+            msg = Message(sub, sender = (name, email) , recipients=["to@example.com"])
+            msg.body = message
             mail.send(msg)
-            #flash('You have successfully filled out the form', 'success')
-            return redirect(url_for('templates', filename='home'))
+            flash('Your email was successfully sent!')
+            return redirect(url_for('home'))
 
     return render_template('contact.html', form=myform)
 
