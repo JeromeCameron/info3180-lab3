@@ -7,8 +7,8 @@ from wtforms.validators import DataRequired, Email
 
 
 class ContactForm(FlaskForm):
-    name = StringField('name', validators=[DataRequired()])
-    email = StringField('email', validators=[DataRequired(), Email()])
-    subject = StringField('subject', validators=[DataRequired()])
-    message = StringField('message', validators=[DataRequired()])
+    name = StringField('Name', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    subject = StringField('Subject', validators=[DataRequired()])
+    message = StringField('Message', validators=[DataRequired()])
     WTF_CSRF_SECRET_KEY = 'mysuperduperkey$'

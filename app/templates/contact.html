@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+    <h2>Contact Form</h2>
+    <p>Fill in this form to contact the site owners.</p>
+
+    <form method = "POST" action = "{{ url_for('contact') }}">
+        {{ form.csrf_token }}
+
+        <div class="c_form">
+            <h3 class = "label">{{ form.name.label }}</h3> <h3 class = "require">(Required)</h3>
+            <p>Please enter full name</p>
+        </div>
+
+        <div class="c_form">
+            {{ form.name(class="c_form") }}
+        </div>
+        
+        <div class="c_form">
+            <h3 class = "label">{{ form.email.label }}</h3> <h3 class = "require">(Required)</h3>
+            <p>Please enter your e-mail address</p>
+        </div>
+
+        <div class="c_form">
+            {{ form.email(class="c_form", placeholder="mail@gmail.com") }}
+        </div>
+
+        <div class="c_form">
+            <h3 class = "label">{{ form.subject.label }}</h3> <h3 class = "require">(Required)</h3>
+            <p>Please enter the subject for you message</p>
+        </div>
+
+        <div class="c_form">
+            {{ form.subject(class="c_form") }}
+        </div>
+
+        <div class="c_form">
+            <h3 class = "label">{{ form.message.label }}</h3> <h3 class = "require">(Required)</h3>
+            <p>Please enter the message you would like to send</p>
+        </div>
+
+        <div class="c_form">
+            {{ form.message(class="c_form") }}
+        </div>
+
+
+    <button type="submit" id="button">Send</button>
+
+    </form>
+
+
+{% endblock %}
